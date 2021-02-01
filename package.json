@@ -1,0 +1,22 @@
+{
+  "name": "register-login-app",
+  "version": "1.0.0",
+  "description": "register login app with node js",
+  "main": "index.js",
+  "dependencies": {
+    "bcrypt": "^5.0.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.11.14"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  },
+  "scripts": {
+    "start": "node .",
+    "dev": "nodemon .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ali Sanad",
+  "license": "ISC"
+}
