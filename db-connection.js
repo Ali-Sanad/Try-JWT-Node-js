@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 mongoose.connect(
-  process.env.MONGO_DB || "mongodb://localhost:27017/practice-5",
+  process.env.MONGO_DB,
   { useNewUrlParser: true, useUnifiedTopology: true },
   (err) => {
     if (err) {

@@ -6,7 +6,7 @@ module.exports = (req,res,next) => {
           //get current user profile
           const {authorization} = req.headers;
           //decoding the token to yield hash, and compare it with the hashed data
-          const signedData = jwt.verify(authorization, 'my-signing-secret');
+          const signedData = jwt.verify(authorization, process.env.SECRER);
           req.signedData = signedData;
           next();
         } 

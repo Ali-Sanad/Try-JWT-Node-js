@@ -1,5 +1,11 @@
 const express = require("express");
 
+//router
+const userRouter = new express.Router();
+
+const bcrypt = require("bcrypt");
+const { Error } = require("mongoose");
+
 //model
 const User = require("../models/user");
 
@@ -8,11 +14,6 @@ const jwt = require("jsonwebtoken");
 
 const authenticationMiddleware = require("../middlewares/authentication");
 
-//router
-const userRouter = new express.Router();
-
-const bcrypt = require("bcrypt");
-const { Error } = require("mongoose");
 
 //base path /api/users
 //register a new user
@@ -42,7 +43,7 @@ userRouter.post("/login", async (req, res) => {
     if (!isMatched) throw new Error("wrong username or password");
 
     //generate token And send it to the user
-    const token = jwt.sign({ id: user.id }, "my-signing-secret");
+    const token = jwt.sign({ id: user.id }, process.env.SECRET);
     res.json({ token });
   } catch (err) {
     console.error(err);
